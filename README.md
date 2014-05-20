@@ -1,4 +1,8 @@
-GTK--CurrencyConverter
+GTK+CurrencyConverter
 ======================
+Language: C++
+GUI library: GTK+
+XML library: TinyXml
+URL transfer library: libcurl
 
-Currency converter written in C++
+
