@@ -1,7 +1,7 @@
 GTK+CurrencyConverter
 ======================
 Language: C++
-GUI library: GTK+
+<p>GUI library: GTK+</p>
 XML library: TinyXml
 URL transfer library: libcurl
 
