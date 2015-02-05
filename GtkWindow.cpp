@@ -28,6 +28,7 @@ void Window::create()
   file = gtk_menu_item_new_with_label("File");
   quit = gtk_menu_item_new_with_label("Quit");
 
+
   help = gtk_menu_item_new_with_label("Help");
   about = gtk_menu_item_new_with_label("About");
 
