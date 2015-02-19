@@ -1,7 +1,6 @@
 #include "GtkWindow.h"
 #include "XMLCurrency.h"
 
-Currency currency;
 
 int  Window :: value1=-1;
 int Window :: value2=-1; //for combobox
@@ -10,6 +9,7 @@ const char* Window :: entry1Value="1";
 
 void Window::create()
 {
+  Currency currency;
   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
   gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
 
@@ -63,7 +63,7 @@ void Window::create()
   label3 = gtk_label_new("Amount");
   label4 = gtk_label_new("Converted");
 
-  dateLabel = gtk_label_new(Currency::date.c_str());
+  dateLabel = gtk_label_new(currency.getDate());
   gtk_widget_modify_font (dateLabel,  pango_font_description_from_string (" 14"));
 
 //EntryText options
@@ -158,7 +158,7 @@ void Window::combo_selected(GtkWidget *widget, gpointer data)
 
 }
 
- char* Window::calculate(char* text)
+char* Window::calculate(char* text)
 {
 
      char buf[5];
@@ -170,53 +170,53 @@ void Window::combo_selected(GtkWidget *widget, gpointer data)
             num=num*1;
 
          else if(value2==1)
-            num=num/currency.EurHr();
+            num=num/Currency::EurHr();
 
          else if(value2==2)
-            num=num/currency.UsaHr();
+            num=num/Currency::UsaHr();
 
          else if(value2==3)
-            num=num/currency.SuiHr();
+            num=num/Currency::SuiHr();
      }
      if(value1==1)
      {
          if(value2==0)
-            num=num*currency.EurHr();
+            num=num*Currency::EurHr();
 
          else if(value2==1)
             num=num*1;
 
         else if(value2==2)
-            num=num*currency.EurUsa();
+            num=num*Currency::EurUsa();
 
          else if(value2==3)
-            num=num*currency.EurSui();
+            num=num*Currency::EurSui();
      }
      if(value1==2)
      {
          if(value2==0)
-            num=num*currency.UsaHr();
+            num=num*Currency::UsaHr();
 
          else if(value2==1)
-            num=num/currency.EurUsa();
+            num=num/Currency::EurUsa();
 
         else if(value2==2)
             num=num*1;
 
          else if(value2==3)
-            num=num*currency.UsaSui();
+            num=num*Currency::UsaSui();
      }
 
      if(value1==3)
      {
          if(value2==0)
-            num=num*currency.SuiHr();
+            num=num*Currency::SuiHr();
 
          else if(value2==1)
-            num=num/currency.EurSui();
+            num=num/Currency::EurSui();
 
         else if(value2==2)
-            num=num/currency.UsaSui();
+            num=num/Currency::UsaSui();
 
          else if(value2==3)
             num=num*1;
@@ -225,7 +225,7 @@ void Window::combo_selected(GtkWidget *widget, gpointer data)
      sprintf(buf,"%.3f",num);
      text=buf;
 
-     return text;//strdup(text);
+     return text;
 }
 
  void Window::combo_entry(GtkWidget *widget, gpointer data)
