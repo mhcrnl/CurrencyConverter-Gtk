@@ -27,21 +27,25 @@ public:
     }
 
     void initialize();
+    
+    static double EurUsa();
+    static double EurSui();
+    static double EurHr();
 
-    double EurUsa();
-    double EurSui();
-    double EurHr();
+    static double UsaSui();
+    static double UsaHr();
 
-    double UsaSui();
-    double UsaHr();
+    static double SuiHr();
 
-    double SuiHr();
-    static std::string date;
+    const char* getDate();
+
 private:
-    double euro;
-    double dollar;
-    double kuna;
-    double franc;
+    static  double euro;
+    static  double dollar;
+    static  double kuna;
+    static  double franc;
+
+    std::string date;
 
 
 
