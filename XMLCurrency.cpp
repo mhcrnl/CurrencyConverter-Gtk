@@ -1,7 +1,11 @@
 #include "XMLCurrency.h"
 #include "curl_data.h"
 using namespace std;
-string Currency::date="";
+
+double::Currency::euro=0.0;
+double::Currency::kuna=0.0;
+double::Currency::dollar=0.0;
+double::Currency::franc=0.0;
 
 void Currency::initialize()
 {
@@ -41,12 +45,7 @@ void Currency::initialize()
 
                 //cout << "Banka: " << e->GetText() << endl;
                 }
-                else if(name=="CurrencyBase")
-                {
 
-                //cout << "Valuta: " << e->GetText() << endl;
-
-                }
                 else if(name=="Date")
                 {
 
@@ -155,4 +154,9 @@ double Currency::UsaSui()
 double Currency::SuiHr()
 {
     return franc/kuna;
+}
+const char* Currency::getDate()
+{
+
+    return date.c_str();
 }
